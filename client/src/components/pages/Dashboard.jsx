@@ -21,7 +21,7 @@ const Dashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("rupayamatebackend.vercel.app/api/transaction",
+      const response = await axios.get("https://rupayamatebackend.vercel.app/api/transaction",
         {
           headers: {
             Authorization: `Bearer ${token}`,

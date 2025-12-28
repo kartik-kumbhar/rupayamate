@@ -28,7 +28,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`rupayamatebackend.vercel.app/api/users/login`, user);
+            const response = await axios.post(`https://rupayamatebackend.vercel.app/api/users/login`, user);
 
             if (response.statusText) {
                 const token = await response.data.token;

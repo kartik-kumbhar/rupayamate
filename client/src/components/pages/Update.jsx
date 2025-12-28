@@ -19,7 +19,7 @@ const Update = () => {
     });
     const fetchdata = async () => {
         try {
-            const response = await axios.get(`rupayamatebackend.vercel.app/api/transaction/${id}`, {
+            const response = await axios.get(`https://rupayamatebackend.vercel.app/api/transaction/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -42,7 +42,7 @@ const Update = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`rupayamatebackend.vercel.app/api/transaction/update/${id}`, transaction, {
+            const response = await axios.put(`https://rupayamatebackend.vercel.app/api/transaction/update/${id}`, transaction, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
