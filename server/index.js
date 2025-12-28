@@ -7,19 +7,23 @@ import dotenv from "dotenv";
 import { errorMiddleware } from "./middleware/errorMiddleware.js";
 dotenv.config();
 
+//deploy backend on vercel
+import serverless from "serverless-http";
+
+
 const app = express();
 
 const corsOption ={
         origin:"http://localhost:5173",
         methods:"GET,POST,PUT,DELETE",
-        credential:true
+        credentials:true
 }
 
 app.use(cors(corsOption));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/expense")
+mongoose.connect(process.env.MONGO_URI)
         .then(()=>console.log("DB Connected!!!"))
         .catch((error)=>console.log(error));
 
@@ -30,4 +34,7 @@ app.use(errorMiddleware);
 
 
 const PORT = 8000;
-app.listen(PORT,()=>console.log("Server Started!!!"));
+// app.listen(PORT,()=>console.log("Server Started!!!"));
+
+export const handler = serverless(app);
+export default app;
