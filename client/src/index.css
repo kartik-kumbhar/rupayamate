@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global body theme only */
+body {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: #020617;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.toastBody {
+font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+color: #10171D; /* #10171D */
+font-size: 20px;
+}

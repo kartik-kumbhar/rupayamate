@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+}
+
+.dashboard-wrapper {
+  min-height: 100vh;
+  background-color: #020617;
+  padding: 2rem 0;
+  display: block;
+}
+
+.dashboard-card {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 18px;
+  padding: 1.25rem;
+  margin: 10px;
+  min-height: 150px;
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  border-color: #334155;
+}
+
+
+.card-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #d6dce6;
+  margin-bottom: 0.25rem;
+}
+
+.card-sub {
+  font-size: 0.8rem;
+  color: #d6dce6;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.dashboard-wrapper .col-xl-3,
+.dashboard-wrapper .col-lg-4,
+.dashboard-wrapper .col-md-6 {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Progress container */
+.progress {
+  height: 8px;
+  background-color: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Inner bar */
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+.progress {
+  height: 5.2px;
+  background: linear-gradient(90deg, #111827, #0f172a);
+}
+
+.progress-bar.bg-danger {
+  background: linear-gradient(90deg, #ef4444, #b91c1c);
+}
+
+.progress-bar.bg-success {
+  background: linear-gradient(90deg, #22c55e, #15803d);
+}
+
+.dashboard-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.dashboard-logo:hover {
+  transform: scale(1.05);
+  transition: .2s ease-in-out;
+}

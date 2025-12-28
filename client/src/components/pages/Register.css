@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section-registration {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #020617;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.grid {
+    display: grid;
+    gap: 0px;
+}
+
+.grid-two-cols {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.registration-image {
+    display: flex;
+    justify-content: center;
+}
+
+.registration-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.registration-form {
+    background-color: rgb(4, 4, 52);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 30%;
+}
+
+.registration-form h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.registration-form form div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.registration-form label {
+    font-size: 14px;
+    color: #cbd5f5;
+}
+
+.registration-form input {
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #1e293b;
+    background-color: #020617;
+    color: #ffffff;
+    outline: none;
+}
+
+.registration-form input::placeholder {
+    color: #94a3b8;
+}
+
+.registration-form input:focus {
+    border-color: #38bdf8;
+}
+
+.btn-submit {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #38bdf8;
+    color: #020617;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+.registration-form p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #cbd5f5;
+}
+
+.registration-form a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.registration-form a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .grid-two-cols {
+        grid-template-columns: 1fr;
+    }
+
+    .registration-image {
+        display: none;
+    }
+}
