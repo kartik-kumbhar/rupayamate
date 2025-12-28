@@ -30,7 +30,7 @@ const Login = () => {
         try {
             const response = await axios.post(`https://rupayamatebackend.vercel.app/api/users/login`, user);
 
-            if (response.statusText) {
+            if (response.status === 200) {
                 const token = await response.data.token;
                 storetokenInLS(token);
                 toast.success(response.data.message)
