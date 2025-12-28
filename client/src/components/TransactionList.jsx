@@ -13,7 +13,7 @@ const TransactionList = () => {
 
   const fetchData = async (e) => {
     try {
-      const response = await axios.get("http://localhost:8000/api/transaction", {
+      const response = await axios.get("rupayamatebackend.vercel.app/api/transaction", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -34,7 +34,7 @@ const TransactionList = () => {
 
   const deleteUser = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/api/transaction/delete/${id}`, {
+      const response = await axios.delete(`rupayamatebackend.vercel.app/api/transaction/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

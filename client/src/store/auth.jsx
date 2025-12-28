@@ -17,7 +17,7 @@ export const AuthProvider = (props) => {
     }
 
     const userAuthentication = async () => {
-        const response = await axios.get("http://localhost:8000/api/users/user", {
+        const response = await axios.get("rupayamatebackend.vercel.app/api/users/user", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
