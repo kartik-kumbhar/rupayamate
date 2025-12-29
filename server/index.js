@@ -33,6 +33,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use("/", route);
 app.use("/transaction", tranRoutes);
 app.get("/", (req, res) => {
+        console.log("hello")
     res.send("Hello World")
 });
 
