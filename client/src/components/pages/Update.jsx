@@ -42,7 +42,7 @@ const Update = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.put(`https://rupayamate.onrender.com/transaction/update/${id}`, transaction, {
+            const response = await axios.put(`https://rupayamatebackend.vercel.app/transaction/update/${id}`, transaction, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
