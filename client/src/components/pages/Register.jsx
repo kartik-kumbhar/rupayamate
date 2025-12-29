@@ -28,7 +28,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const response = await fetch(`https://rupayamatebackend.vercel.app/api/users/register`, {
+            // const response = await fetch(`https://rupayamatebackend.vercel.app/users/register`, {
             //     method: "POST",
             //     headers: {
             //         "Content-Type": "application/json"
@@ -36,7 +36,7 @@ const Register = () => {
             //     body: JSON.stringify(user)
             // });
 
-            const response = await axios.post(`https://rupayamatebackend.vercel.app/api/users/register`, user);
+            const response = await axios.post(`https://rupayamatebackend.vercel.app/users/register`, user);
 
             if (response.statusText) {
                 const token = await response.data.token;

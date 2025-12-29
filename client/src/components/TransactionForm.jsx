@@ -30,7 +30,7 @@ const TransactionForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://rupayamatebackend.vercel.app/api/transaction`, transaction, {
+      const response = await axios.post(`https://rupayamatebackend.vercel.app/transaction`, transaction, {
         headers: {
           Authorization: `Bearer ${token}`
         }
