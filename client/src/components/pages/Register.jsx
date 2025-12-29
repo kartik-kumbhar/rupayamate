@@ -25,35 +25,64 @@ const Register = () => {
 
     const { storetokenInLS } = useAuth();
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     try {
+    //         // const response = await fetch(`https://rupayamate.onrender.com/users/register`, {
+    //         //     method: "POST",
+    //         //     headers: {
+    //         //         "Content-Type": "application/json"
+    //         //     },
+    //         //     body: JSON.stringify(user)
+    //         // });
+
+    //         const response = await axios.post(`https://rupayamate.onrender.com/users/register`, user);
+
+    //         if (response.status === 200) {
+    //             const token = await response.data.token;
+    //             storetokenInLS(token);
+    //             navigate("/login");
+
+    //         }
+    //         toast.success(response.data.message);
+    //     } catch (error) {
+    //         if (error.response) {
+    //             toast.error(error.response.data.extraDetail ? error.response.data.extraDetail : error.response.data.message);
+    //             // console.log(error.response.data); // backend message
+    //         } else {
+    //             toast.error("Something went wrong");
+    //         }
+    //     }
+    // }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // const response = await fetch(`https://rupayamate.onrender.com/users/register`, {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json"
-            //     },
-            //     body: JSON.stringify(user)
-            // });
+            const response = await axios.post(
+                "https://rupayamate.onrender.com/users/register",
+                user
+            );
 
-            const response = await axios.post(`https://rupayamate.onrender.com/users/register`, user);
-
-            if (response.status === 201) {
-                const token = await response.data.token;
-                storetokenInLS(token);
-                navigate("/login");
-
-            }
             toast.success(response.data.message);
-        } catch (error) {
+
+            const token = response.data.token;
+            storetokenInLS(token);
+
+            navigate("/login");
+        }
+        catch (error) {
             if (error.response) {
-                toast.error(error.response.data.extraDetail ? error.response.data.extraDetail : error.response.data.message);
-                // console.log(error.response.data); // backend message
+                toast.error(
+                    error.response.data.extraDetail
+                        ? error.response.data.extraDetail
+                        : error.response.data.message
+                );
             } else {
                 toast.error("Something went wrong");
             }
         }
-    }
+    };
+
 
     return (
         <div>
@@ -72,7 +101,7 @@ const Register = () => {
 
                             <div className="registration-form">
                                 <h1>Registrtion Form</h1>
-                                <form onSubmit={handleSubmit}>
+                                <form onSubmit={handleSubmit} noValidate>
                                     <div>
                                         <label htmlFor="name">Name :</label>
                                         <input
