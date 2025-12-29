@@ -13,7 +13,7 @@ const TransactionList = () => {
 
   const fetchData = async (e) => {
     try {
-      const response = await axios.get("https://rupayamatebackend.vercel.app/transaction", {
+      const response = await axios.get("https://rupayamate.onrender.com/transaction", {
         headers: {
           Authorization: `Bearer ${token}`
         }

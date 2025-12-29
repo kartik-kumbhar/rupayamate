@@ -36,7 +36,7 @@ const Register = () => {
             //     body: JSON.stringify(user)
             // });
 
-            const response = await axios.post(`https://rupayamatebackend.vercel.app/users/register`, user);
+            const response = await axios.post(`https://rupayamate.onrender.com/users/register`, user);
 
             if (response.statusText) {
                 const token = await response.data.token;
