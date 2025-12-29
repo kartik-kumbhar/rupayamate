@@ -26,7 +26,7 @@ app.use(cors(corsOption));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-await mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log("DB Connected!!!"))
         .catch((error) => console.log(error));
 
@@ -43,5 +43,5 @@ app.use(errorMiddleware);
 // const PORT = 8000;
 // app.listen(PORT,()=>console.log("Server Started!!!"));
 
-// export default serverless(app);
-server.listen(PORT, () => console.log("Server started on PORT:" + PORT)); 
+export default serverless(app);
+// app.listen(PORT, () => console.log("Server started on PORT:" + PORT)); 
