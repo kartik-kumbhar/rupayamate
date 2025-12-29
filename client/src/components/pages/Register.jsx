@@ -68,7 +68,7 @@ const Register = () => {
             const token = response.data.token;
             storetokenInLS(token);
 
-            navigate("/login");
+            navigate("/");
         }
         catch (error) {
             if (error.response) {
