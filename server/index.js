@@ -10,6 +10,7 @@ dotenv.config();
 //deploy backend on vercel
 import serverless from "serverless-http";
 
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -25,14 +26,14 @@ app.use(cors(corsOption));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI)
+await mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log("DB Connected!!!"))
         .catch((error) => console.log(error));
 
-app.use("/api", route);
-app.use("/api/transaction", tranRoutes);
-app.get("/api/test", (req, res) => {
-  res.json({ success: true, message: "Backend Working 🚀" });
+app.use("/", route);
+app.use("/transaction", tranRoutes);
+app.get("/", (req, res) => {
+    res.send("Hello World")
 });
 
 app.use(errorMiddleware);
@@ -42,4 +43,5 @@ app.use(errorMiddleware);
 // const PORT = 8000;
 // app.listen(PORT,()=>console.log("Server Started!!!"));
 
-export default serverless(app);
+// export default serverless(app);
+server.listen(PORT, () => console.log("Server started on PORT:" + PORT)); 
