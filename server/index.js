@@ -29,9 +29,9 @@ mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log("DB Connected!!!"))
         .catch((error) => console.log(error));
 
-app.use("/api", route);
-app.use("/api/transaction", tranRoutes);
-app.get("/api/test", (req, res) => {
+app.use("/", route);
+app.use("/transaction", tranRoutes);
+app.get("/test", (req, res) => {
   res.json({ success: true, message: "Backend Working 🚀" });
 });
 
