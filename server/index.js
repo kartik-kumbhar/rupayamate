@@ -31,11 +31,15 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.use("/api", route);
 app.use("/api/transaction", tranRoutes);
+app.get("/api/test", (req, res) => {
+  res.json({ success: true, message: "Backend Working 🚀" });
+});
 
 app.use(errorMiddleware);
 
 
-const PORT = 8000;
-app.listen(PORT,()=>console.log("Server Started!!!"));
 
-// export default serverless(app);
+// const PORT = 8000;
+// app.listen(PORT,()=>console.log("Server Started!!!"));
+
+export default serverless(app);
