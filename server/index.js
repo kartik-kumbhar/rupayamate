@@ -35,7 +35,7 @@ app.use("/api/transaction", tranRoutes);
 app.use(errorMiddleware);
 
 
-// const PORT = 8000;
-// app.listen(PORT,()=>console.log("Server Started!!!"));
+const PORT = 8000;
+app.listen(PORT,()=>console.log("Server Started!!!"));
 
-export default serverless(app);
+// export default serverless(app);

@@ -1,5 +1,23 @@
+# Client & Server node modules
 client/node_modules/
 server/node_modules/
+node_modules/
 
+# Env / secrets
 .env
-*.env 
+*.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# Build
+build/
+dist/
+
+# OS junk
+.DS_Store
+Thumbs.db
