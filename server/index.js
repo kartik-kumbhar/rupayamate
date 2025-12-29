@@ -30,14 +30,16 @@ mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log("DB Connected!!!"))
         .catch((error) => console.log(error));
 
-app.use("/", route);
-app.use("/transaction", tranRoutes);
+app.get("/favicon.ico", (req, res) => res.status(204).end());
 app.get("/", (req, res) => {
         console.log("hello")
     res.send("Hello World")
 });
 
-app.get("/favicon.ico", (req, res) => res.status(204).end());
+app.use("/", route);
+app.use("/transaction", tranRoutes);
+
+
 
 
 app.use(errorMiddleware);
