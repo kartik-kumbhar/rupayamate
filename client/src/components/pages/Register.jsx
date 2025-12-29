@@ -38,7 +38,7 @@ const Register = () => {
 
             const response = await axios.post(`https://rupayamate.onrender.com/users/register`, user);
 
-            if (response.statusText) {
+            if (response.status === 201) {
                 const token = await response.data.token;
                 storetokenInLS(token);
                 navigate("/login");
