@@ -8,17 +8,22 @@ import { errorMiddleware } from "./middleware/errorMiddleware.js";
 dotenv.config();
 
 //deploy backend on vercel
-import serverless from "serverless-http";
+// import serverless from "serverless-http";
 
 const PORT = process.env.PORT || 5000;
 
 const app = express();
 
 const corsOption = {
-        origin: ["http://localhost:5173"],
-        methods: "GET,POST,PUT,DELETE",
-        credentials: true
+        origin: [
+                "http://localhost:5173",
+                "https://rupayamate.vercel.app"
+        ],
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
 }
+
 
 app.use(cors(corsOption));
 app.use(express.urlencoded({ extended: true }));
@@ -31,17 +36,13 @@ mongoose.connect(process.env.MONGO_URI)
 app.get("/favicon.ico", (req, res) => res.status(204).end());
 app.get("/", (req, res) => {
         console.log("hello")
-    res.send("Hello World")
+        res.send("Hello World")
 });
 
 app.use("/", route);
 app.use("/transaction", tranRoutes);
 
 app.use(errorMiddleware);
-
-
-
-// app.listen(PORT,()=>console.log("Server Started!!!"));
 
 // export default serverless(app);
 app.listen(PORT, () => console.log("Server started on PORT:" + PORT)); 
