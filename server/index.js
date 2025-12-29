@@ -39,9 +39,6 @@ app.get("/", (req, res) => {
 app.use("/", route);
 app.use("/transaction", tranRoutes);
 
-
-
-
 app.use(errorMiddleware);
 
 
