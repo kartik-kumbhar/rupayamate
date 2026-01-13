@@ -3,6 +3,11 @@
 RupayaMate is a personal finance management web application built using the **MERN stack**.  
 It helps users track their **income and expenses**, view **financial analytics**, and control spending by setting a **monthly expense limit**.
 
+--- 
+
+## 🚀 Live Demo
+🔗 https://rupayamate.vercel.app
+
 ---
 
 ## 🚀 Key Features
