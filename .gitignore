@@ -1,23 +1,21 @@
-# Client & Server node modules
+# Node modules
+node_modules/
 client/node_modules/
 server/node_modules/
-node_modules/
 
-# Env / secrets
+# Environment files (secrets)
 .env
-*.env
-.env.local
-.env.development
-.env.production
+.env.*
+!.env.example
 
 # Logs
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-error.log*
 
-# Build
+# Build output
 build/
 dist/
 
-# OS junk
+# OS files
 .DS_Store
 Thumbs.db
