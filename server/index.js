@@ -1,47 +1,49 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import route from "./routes/userRoutes.js";
+import tranRoutes from "./routes/transactionRoutes.js";
 import dotenv from "dotenv";
-
-import userRoutes from "./routes/userRoutes.js";
-import transactionRoutes from "./routes/transactionRoutes.js";
 import { errorMiddleware } from "./middleware/errorMiddleware.js";
-
 dotenv.config();
 
+//deploy backend on vercel
+// import serverless from "serverless-http";
+
 const PORT = process.env.PORT || 5000;
+
 const app = express();
 
-/* -------------------- Middleware -------------------- */
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://rupayamate.vercel.app"
-  ],
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-}));
+const corsOption = {
+        origin: [
+                "http://localhost:5173",
+                "https://rupayamate.vercel.app"
+        ],
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+}
 
-app.use(express.json());
+
+app.use(cors(corsOption));
+app.options(/.*/, cors(corsOption)); 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-/* -------------------- Database -------------------- */
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch(err => console.error("MongoDB Error:", err));
+        .then(() => console.log("DB Connected!!!"))
+        .catch((error) => console.log(error));
 
-/* -------------------- Routes -------------------- */
+app.get("/favicon.ico", (req, res) => res.status(204).end());
 app.get("/", (req, res) => {
-  res.send("API is running");
+        console.log("hello")
+        res.send("Hello World")
 });
 
-app.use("/api/users", userRoutes);
-app.use("/api/transactions", transactionRoutes);
+app.use("/", route);
+app.use("/transaction", tranRoutes);
 
-/* -------------------- Error Handler -------------------- */
 app.use(errorMiddleware);
 
-/* -------------------- Server -------------------- */
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// export default serverless(app);
+app.listen(PORT, () => console.log("Server started on PORT:" + PORT)); 
